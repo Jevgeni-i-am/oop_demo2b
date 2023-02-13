@@ -1,0 +1,100 @@
+/**
+ * Luokka mallintaa yhtä jääkiekon pelaajaa.
+ * Pelaajalla on nimen ja numeron lisäksi tieto tehdyistä
+ * maaleista ja annetuista syötöistä.
+ */
+public class Pelaaja {
+    private String nimi;
+    private int pelinumero;
+    private int maalit;
+    private int syotot;
+
+    /**
+     * Konstruktori luo uuden Pelaaja-olion
+     *
+     * @param nimi pelaajan nimi
+     * @param pelinumero pelaajan pelinumero
+     * @param maalit pelaajan maalien määrä
+     * @param syotot pelaajan syöttöjen määrä
+     *
+     */
+    public Pelaaja(String nimi, int pelinumero, int maalit, int syotot) {
+        this.nimi = nimi;
+        this.pelinumero = pelinumero;
+        this.maalit = maalit;
+        this.syotot = syotot;
+    }
+
+    /**
+     * Konstruktori luo uuden Pelaaja-olion. Pelaajan maalien ja
+     * syöttöjen määräksi tulee 0.
+     *
+     * @param nimi pelaajan nimi
+     * @param pelinumero pelaajan pelinumero
+     *
+     */
+    public Pelaaja(String nimi, int pelinumero) {
+
+        this.nimi = nimi;
+        this.pelinumero = pelinumero;
+        this.maalit=0;
+        this.syotot=0;
+    }
+/**
+     * Metodi palauttaa pelaajan nimen
+     * @return pelaajan nimen
+     */
+    public String getNimi() {
+        return nimi;
+    }
+/**
+     * Metodi palauttaa pelaajan pelinumeron
+     * @return pelaajan pelinumeron
+     */
+    public int getPelinumero() {
+        return pelinumero;
+    }
+
+/**
+     * Metodi lisää pelaajalle yhden tehdyn maalin
+     */
+
+    public void lisaaMaali(String nimi, int maalit){
+        this.nimi=nimi;
+        this.maalit=maalit;
+        maalit++;
+    }
+
+
+    /**
+     * Metodi lisää pelaajalle yhden syötön
+     */
+    public void lisaaSyotto(String nimi, int syotot){
+        this.nimi=nimi;
+        this.syotot=syotot;
+        syotot++;
+    }
+
+    /**
+     * Palauttaa pelaajan pisteiden määrän. Pisteisiin lasketaan
+     * yhteen sekä maalit että syötöt.
+     *
+     * @return tiedon pelaajan pisteistä
+     */
+
+    public int getPisteet(){
+        return maalit+syotot;
+    }
+
+    /**
+     * Palauttaa pelaajan tiedot merkkijonona alla olevan esimerkin
+     * mukaisesti. Esimerkissä pelaajan nimi on "Pekka Pelaaja", hänen
+     * pelinumeronsa on 8 ja hänellä on 1 maali ja 3 syöttöä.
+     *
+     * 8. Pekka Pelaaja (1 + 3 = 4)
+     */
+    public void tulostaTilanne() {
+        System.out.println(pelinumero+". "+nimi+" ("+maalit+" + "+syotot+" = "+getPisteet());
+    }
+    
+}
